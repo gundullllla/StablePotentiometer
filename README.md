@@ -1,37 +1,42 @@
+# StablePotentiometer Library
 
-This directory is intended for project header files.
+Advanced filtering for stable potentiometer readings on ESP32.
 
-A header file is a file containing C declarations and macro definitions
-to be shared between several project source files. You request the use of a
-header file in your project source file (C, C++, etc) located in `src` folder
-by including it, with the C preprocessing directive `#include'.
+## Features
+- 7 filtering algorithms
+- Touch-controlled mode switching
+- Configurable parameters
+- Automatic ADC calibration
 
-```src/main.c
+## Installation
+1. Download ZIP
+2. Arduino IDE: Sketch > Include Library > Add .ZIP Library
+3. Select downloaded file
 
-#include "header.h"
+## Basic Usage
+```cpp
+#include <StablePotentiometer.h>
 
-int main (void)
-{
- ...
+Potentiometer pot(15);  // GPIO pin
+
+void setup() {
+  pot.configureADC();
+}
+
+void loop() {
+  int raw = pot.raw();
+  pot.updateExponential(raw);  // Apply filter
+  float filtered = pot.read();
 }
 ```
 
-Including a header file produces the same results as copying the header file
-into each source file that needs it. Such copying would be time-consuming
-and error-prone. With a header file, the related declarations appear
-in only one place. If they need to be changed, they can be changed in one
-place, and programs that include the header file will automatically use the
-new version when next recompiled. The header file eliminates the labor of
-finding and changing all the copies as well as the risk that a failure to
-find one copy will result in inconsistencies within a program.
+## Examples
+1. **BasicReading** - Simple filtered reading
+2. **FullDemo** - Complete demo with touch control
 
-In C, the convention is to give header files names that end with `.h'.
-
-Read more about using header files in official GCC documentation:
-
-* Include Syntax
-* Include Operation
-* Once-Only Headers
-* Computed Includes
-
-https://gcc.gnu.org/onlinedocs/cpp/Header-Files.html
+## Filter Algorithms
+1. Exponential Smoothing
+2. Moving Average
+3. Median (5/9/13 samples)
+4. Kalman Filter
+5. Combined (Median+Exponential+MovingAvg)
