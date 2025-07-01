@@ -1,6 +1,6 @@
 # StablePotentiometer Library
 
-Advanced filtering for stable potentiometer readings on ESP32.
+Advanced filtering for stable potentiometer readings on ESP32. Result of leetcoding - I don#t know if this will work correctly.
 
 ## Features
 - 7 filtering algorithms
