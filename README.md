@@ -1,8 +1,8 @@
-#DISCLAIMER: I don't know how to code - this was made by AI so I don't know if it will work correctly.
+## DISCLAIMER: I don't know how to code - this was made by AI so I don't know if it will work correctly.
 
 # StablePotentiometer Library
 
-Advanced filtering for stable potentiometer readings on ESP32. 
+Advanced filtering for stable potentiometer readings on ESP32.
 
 ## Features
 - 7 filtering algorithms
